@@ -1,4 +1,4 @@
-package com.webbleen.entity;
+package com.webbleen.ssm.entity;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package com.webbleen.mapper;
+package com.webbleen.ssm.mapper;
 
-import com.webbleen.entity.User;
+import com.webbleen.ssm.entity.User;
 
 import java.util.List;
 

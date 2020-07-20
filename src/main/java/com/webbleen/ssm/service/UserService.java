@@ -1,6 +1,6 @@
-package com.webbleen.service;
+package com.webbleen.ssm.service;
 
-import com.webbleen.entity.User;
+import com.webbleen.ssm.entity.User;
 
 import java.util.List;
 

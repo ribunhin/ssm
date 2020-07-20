@@ -1,6 +1,6 @@
-package com.webbleen.controller;
+package com.webbleen.ssm.controller;
 
-import com.webbleen.service.UserService;
+import com.webbleen.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
