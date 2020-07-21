@@ -1,6 +1,7 @@
 package com.webbleen.ssm.mapper;
 
 import com.webbleen.ssm.entity.User;
+import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -9,11 +10,9 @@ public interface UserMapper {
 
     int insert(User record);
 
-    int insertSelective(User record);
-
     User selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(User record);
+    List<User> selectAll();
 
     int updateByPrimaryKey(User record);
 }

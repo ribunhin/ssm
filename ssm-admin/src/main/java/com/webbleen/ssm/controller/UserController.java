@@ -18,7 +18,7 @@ public class UserController {
     public ModelAndView findAll() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
-        modelAndView.addObject("list", userService.findAll());
+        modelAndView.addObject("list", userService.selectAll());
         return modelAndView;
     }
 }
