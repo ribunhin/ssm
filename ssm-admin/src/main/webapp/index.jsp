@@ -10,11 +10,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>My JSP 'index.jsp' starting page</title>
 </head>
 <body>
-<c:forEach items="${list}" var="user">
-    ${user.id}--${user.username}--${user.avatar}<br/>
-</c:forEach>
+    <jsp:forward page="admin/index.jsp"></jsp:forward>
 </body>
 </html>
