@@ -1,7 +1,5 @@
 package com.webbleen.ssm.service.impl;
 
-import com.webbleen.ssm.entity.User;
-import com.webbleen.ssm.mapper.UserMapper;
 import com.webbleen.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -3,8 +3,6 @@ package com.webbleen.ssm.mapper;
 import com.webbleen.ssm.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
-
 @Mapper
 public interface UserMapper {
     int deleteByPrimaryKey(Long id);
@@ -18,6 +16,4 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
-
-    public List<User> findAll();
 }
