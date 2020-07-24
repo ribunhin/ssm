@@ -16,7 +16,7 @@
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from ums_admin
     where id = #{id,jdbcType=BIGINT}
-  </delete>
+    </delete>
     <insert id="insert">
     insert into ums_admin (id, username, password, 
       icon, email, nick_name, 
@@ -26,7 +26,7 @@
       #{icon,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
       #{note,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{loginTime,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER})
-  </insert>
+    </insert>
     <update id="updateByPrimaryKey">
     update ums_admin
     set username = #{username,jdbcType=VARCHAR},
@@ -39,16 +39,19 @@
       login_time = #{loginTime,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
-  </update>
+    </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, username, password, icon, email, nick_name, note, create_time, login_time, 
-    status
+    select id, username, password, icon, email, nick_name, note, create_time, login_time, status
     from ums_admin
     where id = #{id,jdbcType=BIGINT}
-  </select>
-    <select id="selectAll" resultMap="BaseResultMap">
-    select id, username, password, icon, email, nick_name, note, create_time, login_time, 
-    status
+    </select>
+    <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, username, password, icon, email, nick_name, note, create_time, login_time, status
     from ums_admin
-  </select>
+    where username = #{username,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, username, password, icon, email, nick_name, note, create_time, login_time, status
+    from ums_admin
+    </select>
 </mapper>

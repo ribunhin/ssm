@@ -10,9 +10,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>首页</title>
+
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico">
+
 </head>
 <body>
-    <jsp:forward page="admin/index.jsp"></jsp:forward>
+<p>首页</p>
+<%--    <jsp:forward page="admin/index.jsp"></jsp:forward>--%>
 </body>
 </html>

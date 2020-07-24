@@ -13,8 +13,14 @@ public class AdminServiceImpl implements AdminService {
 
     @Autowired
     private UmsAdminMapper adminMapper;
+
     @Override
-    public List<UmsAdmin> selectAll() {
+    public List<UmsAdmin> findAll() {
         return adminMapper.selectAll();
+    }
+
+    @Override
+    public UmsAdmin findByUsername(String username) {
+        return adminMapper.selectByUsername(username);
     }
 }
