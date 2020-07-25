@@ -5,15 +5,21 @@ import org.apache.shiro.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-public class MainController {
+public class HomeController {
 
-    private final static Logger LOG = LoggerFactory.getLogger(MainController.class);
+    private final static Logger LOG = LoggerFactory.getLogger(HomeController.class);
+
+    @GetMapping("/home")
+    public String home(Model model) {
+        return "index";
+    }
     /**
      * 加载登录页
      * @return
