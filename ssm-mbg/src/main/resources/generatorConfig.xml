@@ -5,7 +5,7 @@
 <generatorConfiguration>
     <properties resource="generatorConfig.properties"></properties>
 
-    <context id="MySql" defaultModelType="flat" targetRuntime="MyBatis3Simple">
+    <context id="MySqlContext" defaultModelType="flat" targetRuntime="MyBatis3">
 
         <!-- 生成的Java文件的编码 -->
         <property name="javaFileEncoding" value="UTF-8"/>
@@ -16,6 +16,8 @@
 
         <!-- 生成的POJO实现java.io.Serializable接口 -->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--生成mapper.xml时覆盖原文件-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
         <plugin type="com.webbleen.ssm.mybatis.plugin.CommentPlugin" />
         <plugin type="com.webbleen.ssm.mybatis.plugin.LombokPlugin">
             <property name="hasLombok" value="true"/>
@@ -36,7 +38,8 @@
                 connectionURL="${jdbc.url}"
                 userId="${jdbc.username}"
                 password="${jdbc.password}">
-            <property name="nullCatalogMeansCurrent" value="true"/>
+            <!--解决mysql驱动升级到8.0后不生成指定数据库代码的问题-->
+            <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
 
         <javaModelGenerator targetPackage="${model.package}"
@@ -48,7 +51,9 @@
         <javaClientGenerator targetPackage="${dao.package}"
                              targetProject="${target.project}/java" type="XMLMAPPER"/>
 
-        <table tableName="ums_admin" domainObjectName="UmsAdmin"></table>
-        <table tableName="ums_menu" domainObjectName="UmsMenu"></table>
+        <!--生成全部表tableName设为%-->
+        <table tableName="%">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
     </context>
 </generatorConfiguration>

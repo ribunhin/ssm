@@ -10,10 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 运行此方法生成mybatis代码
+ * 用于生产MBG的代码
  * 生成代码自动放入对应目录
- * 配置文件targetProject应从项目名称开始到要生成到的classpath
- * Created by huhaichao on 2017/5/15.
  */
 public class MyBatisGeneratorRun {
 
@@ -26,17 +24,23 @@ public class MyBatisGeneratorRun {
     }
 
     public void generator() throws Exception{
-
+        //MBG 执行过程中的警告信息
         List<String> warnings = new ArrayList<String>();
+        //当生成的代码重复时，覆盖原代码
         boolean overwrite = true;
-        InputStream resourceAsStream = this.getClass().getClassLoader().getResourceAsStream("generatorConfig.xml");
+        //读取我们的 MBG 配置文件
+        InputStream is = this.getClass().getResourceAsStream("/generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
-        Configuration config = cp.parseConfiguration(resourceAsStream);
-        DefaultShellCallback callback = new DefaultShellCallback(overwrite);
-        MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-        myBatisGenerator.generate(null);
+        Configuration config = cp.parseConfiguration(is);
+        is.close();
 
-        for(String warning:warnings){
+        DefaultShellCallback callback = new DefaultShellCallback(overwrite);
+        //创建 MBG
+        MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
+        //执行生成代码
+        myBatisGenerator.generate(null);
+        //输出警告信息
+        for (String warning : warnings) {
             System.out.println(warning);
         }
     }

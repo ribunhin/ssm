@@ -11,7 +11,7 @@
 
     <modules>
         <module>ssm-admin</module>
-        <module>ssm-generator</module>
+        <module>ssm-mbg</module>
     </modules>
 
     <dependencyManagement>
