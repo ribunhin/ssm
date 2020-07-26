@@ -1,20 +1,32 @@
 package com.webbleen.ssm.mapper;
 
 import com.webbleen.ssm.entity.UmsAdmin;
+import com.webbleen.ssm.entity.UmsAdminExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UmsAdminMapper {
+    long countByExample(UmsAdminExample example);
+
+    int deleteByExample(UmsAdminExample example);
+
     int deleteByPrimaryKey(Long id);
 
     int insert(UmsAdmin record);
 
+    int insertSelective(UmsAdmin record);
+
+    List<UmsAdmin> selectByExample(UmsAdminExample example);
+
     UmsAdmin selectByPrimaryKey(Long id);
 
-    UmsAdmin selectByUsername(String username);
+    int updateByExampleSelective(@Param("record") UmsAdmin record, @Param("example") UmsAdminExample example);
 
-    List<UmsAdmin> selectAll();
+    int updateByExample(@Param("record") UmsAdmin record, @Param("example") UmsAdminExample example);
+
+    int updateByPrimaryKeySelective(UmsAdmin record);
 
     int updateByPrimaryKey(UmsAdmin record);
 }

@@ -1,6 +1,7 @@
 package com.webbleen.ssm.controller;
 
 import com.webbleen.ssm.service.AdminService;
+import com.webbleen.ssm.service.MenuService;
 import com.webbleen.ssm.shiro.AdminProfile;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresRoles;
@@ -19,17 +20,24 @@ public class AdminController {
 
     private final static Logger LOG = LoggerFactory.getLogger(AdminController.class);
 
-
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private MenuService menuService;
 
     /**
      * 采用user过滤器
      * @return
      */
     @GetMapping
-    public String index () {
+    public String index (Model model) {
+        model.addAttribute("menuTreeList", menuService.treeList());
         return "admin/index";
+    }
+
+    @GetMapping("home")
+    public String home() {
+        return "admin/home";
     }
 
     @GetMapping("main")
@@ -46,7 +54,7 @@ public class AdminController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        model.addAttribute("list", adminService.findAll());
+        model.addAttribute("list", adminService.list());
         return "admin/users";
     }
 

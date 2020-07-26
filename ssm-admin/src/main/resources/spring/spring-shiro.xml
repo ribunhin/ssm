@@ -94,6 +94,7 @@
         <property name="filterChainDefinitions">
             <value>
                 /css/** = anon
+                /fonts/** = anon
                 /images/** = anon
                 /js/** = anon
                 /unauthorized = anon

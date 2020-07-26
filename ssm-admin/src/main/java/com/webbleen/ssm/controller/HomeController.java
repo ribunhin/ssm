@@ -43,7 +43,7 @@ public class HomeController {
     public String login (@RequestParam String username, @RequestParam String password, RedirectAttributes attributes) {
         attributes.addFlashAttribute("username", username);
         attributes.addFlashAttribute("password", "");
-        attributes.addFlashAttribute("error", "用户名或密码错误");
+        attributes.addFlashAttribute("message", "用户名或密码错误");
         return "redirect:/login";
     }
 }

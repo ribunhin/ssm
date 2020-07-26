@@ -72,7 +72,7 @@ public class SystemLogAspect {
         long endTime = System.currentTimeMillis();
         String urlStr = request.getRequestURL().toString();
         systemLog.setBasePath(StrUtil.removeSuffix(urlStr, URLUtil.url(urlStr).getPath()));
-        systemLog.setIp(request.getRemoteUser());
+        systemLog.setIp(request.getRemoteAddr());
         systemLog.setMethod(request.getMethod());
         systemLog.setParameter(getParameter(method, joinPoint.getArgs()));
         systemLog.setResult(result);

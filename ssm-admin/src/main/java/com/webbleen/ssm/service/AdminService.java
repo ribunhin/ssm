@@ -5,7 +5,7 @@ import com.webbleen.ssm.entity.UmsAdmin;
 import java.util.List;
 
 public interface AdminService {
-    List<UmsAdmin> findAll();
+    List<UmsAdmin> list();
 
-    UmsAdmin findByUsername(String username);
+    UmsAdmin getByUsername(String username);
 }

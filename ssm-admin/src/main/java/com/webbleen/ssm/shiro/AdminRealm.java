@@ -13,8 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
-
 /**
  * 提供认证和授权数据
  */
@@ -53,7 +51,7 @@ public class AdminRealm extends AuthorizingRealm {
         String username = token.getUsername();
         String password = new String(token.getPassword());
 
-        UmsAdmin umsAdmin = adminService.findByUsername(username);
+        UmsAdmin umsAdmin = adminService.getByUsername(username);
         if (umsAdmin == null) {
             throw new UnknownAccountException();
         }
